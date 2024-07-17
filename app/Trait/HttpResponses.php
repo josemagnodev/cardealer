@@ -18,6 +18,9 @@ trait HttpResponses
      */
     public function response(string $message, string|int $status, $data = [])
     {
+        if(!$data){
+            $data = 'Empty load';
+        }
         return response()->json([
             'message' => $message,
             'status' => $status,
