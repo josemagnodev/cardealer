@@ -16,6 +16,7 @@ This project implements comprehensive logic for managing a car dealership. It pr
 - **RESTful API**: Clean and well-structured API endpoints following RESTful principles.
 - **Data Serialization**: Use of Laravel's Resource classes to transform and format data efficiently.
 - **Error Handling**: Detailed validation and error handling to provide clear feedback for API consumers.
+- **Authentication with Sanctum**: Secure API authentication using Laravel Sanctum for controlled access to system operations.
 
 ## Installation
 
@@ -24,8 +25,8 @@ To get started with the project, follow these steps:
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/your-username/car-dealer-management.git
-    cd car-dealer-management
+    git clone https://github.com/josemagno/cardealer.git
+    cd cardealer
     ```
 
 2. **Install dependencies**:
