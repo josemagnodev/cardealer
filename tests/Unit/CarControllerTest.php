@@ -1,11 +1,9 @@
-<?php
-
+<?php 
 namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Car;
-use App\Http\Resources\V1\CarResource;
 
 class CarControllerTest extends TestCase
 {
@@ -13,12 +11,9 @@ class CarControllerTest extends TestCase
 
     /**
      * Test index method.
-     *
-     * @return void
      */
-    public function testIndex()
+    public function testIndex(): void
     {
-        // Create some test data
         Car::factory()->count(3)->create();
 
         $response = $this->get('/api/cars');
@@ -40,10 +35,8 @@ class CarControllerTest extends TestCase
 
     /**
      * Test create method.
-     *
-     * @return void
      */
-    public function testCreate()
+    public function testCreate(): void
     {
         $data = [
             'name' => 'Test Car',
@@ -58,12 +51,7 @@ class CarControllerTest extends TestCase
                  ->assertJson([
                      'message' => 'Car Created',
                      'status' => 201,
-                     'data' => [
-                         'name' => 'Test Car',
-                         'brand' => 'Test Brand',
-                         'year' => 2021,
-                         'body' => 'Sedan',
-                     ]
+                     'data' => $data
                  ]);
 
         $this->assertDatabaseHas('cars', $data);
@@ -71,10 +59,8 @@ class CarControllerTest extends TestCase
 
     /**
      * Test show method.
-     *
-     * @return void
      */
-    public function testShow()
+    public function testShow(): void
     {
         $car = Car::factory()->create();
 
@@ -93,10 +79,8 @@ class CarControllerTest extends TestCase
 
     /**
      * Test update method.
-     *
-     * @return void
      */
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $car = Car::factory()->create();
 
@@ -113,12 +97,7 @@ class CarControllerTest extends TestCase
                  ->assertJson([
                      'message' => 'Car updated',
                      'status' => 200,
-                     'data' => [
-                         'name' => 'Updated Car',
-                         'brand' => 'Updated Brand',
-                         'year' => 2022,
-                         'body' => 'Coupe',
-                     ]
+                     'data' => $data
                  ]);
 
         $this->assertDatabaseHas('cars', $data);
